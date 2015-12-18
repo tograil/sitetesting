@@ -9,7 +9,7 @@ globalScope = (function() {
             'ngRoute',
             'ngCookies',
             'ui.router'
-        ]).constant('apiURL', 'http://localhost:53165');
+        ]).constant('$$apiURL', 'http://localhost:53165');
 
     var directives = angular.module('MyApp.directives', []);
     var controllers = angular.module('MyApp.controllers', []);
