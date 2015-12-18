@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div class="logo">
+            <h1>iHeeds</h1>
+        </div>
+        <div class="box-login" ng-controller="ngLogin">
+            <form class="form-login" ng-submit="loginSubmit()">
+                <fieldset>
+                    <legend>
+                        Sign in to your account
+                    </legend>
+                    <p>
+                        Please enter your e-mail and password to log in.
+                    </p>
+                    <div class="form-group">
+                        <span class="input-icon">
+                            <input type="email" class="form-control" name="email" ng-model="login.email" placeholder="Your e-mail" required>
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                    <div class="form-group form-actions">
+                        <span class="input-icon">
+                            <input type="password" class="form-control password" name="password" ng-model="login.password" placeholder="Your password" required>
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <div class="form-actions">
+                        <div class="checkbox clip-check check-primary">
+                            <input type="checkbox" id="remember" value="1">
+                            <label for="remember">
+                                Keep me signed in
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">
+                            Login <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

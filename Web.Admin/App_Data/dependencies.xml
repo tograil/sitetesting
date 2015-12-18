@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<autofac-dependencies>
+
+  <components>
+
+    <!-- Repositories -->
+    <component
+      service="System.Data.Entity.DbContext, EntityFramework"
+      type="Core.Data.EF.Context.MainDataContext, Core.Data.EF"
+      instance-scope="per-lifetime-scope"/>
+
+    <component
+      service="Core.Store.IUnitOfWork, Core"
+      type="Core.Data.EF.Store.UnitOfWork, Core.Data.EF"
+      instance-scope="per-lifetime-scope"/>
+
+    <component
+      service=" Core.Store.Profiles.IUserRepository, Core"
+      type="Core.Data.EF.Store.Profiles.UserRepository, Core.Data.EF"
+      instance-scope="per-lifetime-scope"/>
+
+    <component
+      service=" Core.Store.Profiles.IUserRoleRepository, Core"
+      type="Core.Data.EF.Store.Profiles.UserRoleRepository, Core.Data.EF"
+      instance-scope="per-lifetime-scope"/>
+
+  </components>
+</autofac-dependencies>

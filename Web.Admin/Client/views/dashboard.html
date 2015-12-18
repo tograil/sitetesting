@@ -1,0 +1,193 @@
+<section id="page-title" class="padding-top-15 padding-bottom-15">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mainTitle" translate="dashboard.WELCOME">{{ mainTitle }}</h1>
+        </div>
+    </div>
+</section>
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-white no-radius text-center">
+                <div class="panel-body">
+                    <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-clock-o fa-stack-1x fa-inverse"></i> </span>
+                    <h2 class="StepTitle">Moderate Users Challenges</h2>
+                    <p class="text-small">
+                        Approve or decline Users' Challenges
+                    </p>
+                    <p class="links cl-effect-1">
+                        <a href="#" ui-sref="app.user_challenges_en">
+                            Moderate EN
+                        </a>
+                        </br>
+                        <a href="#" ui-sref="app.user_challenges_esp">
+                            Moderate ESP
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-white no-radius text-center">
+                <div class="panel-body">
+                    <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-globe fa-stack-1x fa-inverse"></i> </span>
+                    <h2 class="StepTitle">Moderate News</h2>
+                    <p class="text-small">
+                        Approve or decline Users' News
+                    </p>
+                    <p class="cl-effect-1">
+                        <a href="#" ui-sref="app.newsEn">
+                            Moderate EN
+                        </a>
+                        </br>
+                        <a href="#" ui-sref="app.newsSp">
+                            Moderate ESP
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-white no-radius text-center">
+                <div class="panel-body">
+                    <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-pencil fa-stack-1x fa-inverse"></i> </span>
+                    <h2 class="StepTitle">Create/Edit News</h2>
+                    <p class="text-small">
+                        Submit News
+                    </p>
+                    <p class="links cl-effect-1">
+                        <a href="#" ui-sref="app.news">
+                            Create/Edit news
+                        </a>
+                        </br>
+                        </br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-fullw bg-white" ng-controller="DashboardActivitiesCtrl" ng-init="getAllActivities()">
+    <div class="row">
+        <div class="col-md-12">
+            <activities-legend activities="[lastActivities, lastChallangesActivities, lastNewsActivities]"></activities-legend>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-heading border-light">
+                    <h4 class="panel-title text-primary">Recent Activities</h4>
+                    <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+                </div>
+                <div collapse="activities" ng-init="activities=false" class="panel-wrapper">
+                    <div class="panel-body">
+                        <ul class="timeline-xs">
+                            <li class="timeline-item {{activity.Type}}" ng-repeat="activity in lastActivities">
+                                <div class="margin-left-15">
+                                    <div class="text-muted text-small">
+                                        {{getDate(activity.DateTime)}}
+                                    </div>
+                                    <p>
+                                        <a href="#" ng-if="activity.ActionType != 'Delete'" link-generator item="activity">{{activity.Description}} {{activity.Id}}</a>
+                                        <span class="text-dark" ng-if="activity.ActionType == 'Delete'">{{activity.Description}} {{activity.Id}}</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-heading border-light">
+                    <h4 class="panel-title text-primary">Recent Challanges Activities</h4>
+                    <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+                </div>
+                <div collapse="activities" ng-init="activities=false" class="panel-wrapper">
+                    <div class="panel-body">
+                        <ul class="timeline-xs">
+                            <li class="timeline-item {{activity.Type}}" ng-repeat="activity in lastChallangesActivities">
+                                <div class="margin-left-15">
+                                    <div class="text-muted text-small">
+                                        {{getDate(activity.DateTime)}}
+                                    </div>
+                                    <p>
+                                        <a href="#" ng-if="activity.ActionType != 'Delete'" link-generator item="activity">{{activity.Description}} {{activity.Id}}</a>
+                                        <span class="text-dark" ng-if="activity.ActionType == 'Delete'">{{activity.Description}} {{activity.Id}}</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-heading border-light">
+                    <h4 class="panel-title text-primary">Recent News Activities</h4>
+                    <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+                </div>
+                <div collapse="activities" ng-init="activities=false" class="panel-wrapper">
+                    <div class="panel-body">
+                        <ul class="timeline-xs">
+                            <li class="timeline-item {{activity.Type}}" ng-repeat="activity in lastNewsActivities">
+                                <div class="margin-left-15">
+                                    <div class="text-muted text-small">
+                                        {{getDate(activity.DateTime)}}
+                                    </div>
+                                    <p>
+                                        <a href="#" ng-if="activity.ActionType != 'Delete'" link-generator item="activity">{{activity.Description}} {{activity.Id}}</a>
+                                        <span class="text-dark" ng-if="activity.ActionType == 'Delete'">{{activity.Description}} {{activity.Id}}</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container-fullw bg-white" ng-controller="DashboardStatisticsCtrl" ng-init="loadStatistic()">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-white no-radius">
+                <div class="panel-wrapper collapse in" ng-init="visits=false" collapse="visits" style="height: auto;">
+                    <div class="panel-heading border-bottom">
+                        <h4 class="panel-title">Activity Statistic</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="margin-top-10">
+                            <div class="height-350 ng-scope">
+                                <canvas chart-legend="chart2" chart-data="adminsChartData" chart-options="adminsChartOptions" tc-chartjs-bar="" class="tc-chart ng-isolate-scope" width="476" height="180" style="width: 476px; height: 180px;"></canvas>
+                                <div class="inline pull-left legend-xs ng-isolate-scope" chart-legend="chart2" tc-chartjs-legend=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-white no-radius">
+                <div class="panel-heading border-bottom">
+                    <h4 class="panel-title">Goals Statistic</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="ng-scope">
+                        <div class="text-center">
+                            <span class="mini-pie width-200 height-270 vertical-align-middle" style="overflow:hidden"> <canvas chart-legend="chart3" chart-data="GoalsChartData" chart-options="GoalsChartOptions" tc-chartjs-doughnut=""></canvas> <span style="line-height:300px;">{{total}}</span> </span>
+                            <span class="inline text-large no-wrap vertical-align-middle padding-top-30">Acceptance</span>
+                        </div>
+                        <div class="margin-top-20 text-center legend-xs">
+                            <div class="inline" chart-legend="chart3" tc-chartjs-legend=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
