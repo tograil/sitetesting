@@ -1,7 +1,7 @@
-globalScope = (function() {
+var globalScope = (function() {
     'use strict';
 
-    var root = angular.module('userManager',
+   angular.module('userManager',
         [
             'MyApp.services',
             'MyApp.controllers',
@@ -9,11 +9,21 @@ globalScope = (function() {
             'ngRoute',
             'ngCookies',
             'ui.router'
-        ]).constant('$$apiURL', 'http://localhost:53165');
+        ]);
 
-    var directives = angular.module('MyApp.directives', []);
-    var controllers = angular.module('MyApp.controllers', []);
-    var services = angular.module('MyApp.services', []);
+    var root = angular.module('userManager');//.constant('ApiUrl', 'http://localhost:53165');
+
+    //root;
+
+    angular.module('MyApp.directives', []);
+    angular.module('MyApp.controllers', []);
+    angular.module('MyApp.services', []);
+
+    var directives = angular.module('MyApp.directives');
+    var controllers = angular.module('MyApp.controllers').constant('ApiUrl', 'http://localhost:53165/');
+    var services = angular.module('MyApp.services');
+
+    //controllers.constant('$$ApiUrl', 'http://localhost:53165/');
 
     return {
         root: root,

@@ -183,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\dependencies.xml" />
-    <Content Include="Client\content\css\app.css" />
     <Content Include="Client\content\css\main-theme.css" />
     <Content Include="Client\content\css\plugins.css" />
     <Content Include="Client\content\css\styles.css" />
@@ -219,7 +218,8 @@
     <Content Include="Client\content\images\picture.svg" />
     <Content Include="Client\content\images\plane.png" />
     <Content Include="Client\content\images\your-logo-here.png" />
-    <Content Include="Client\index.html" />
+    <Content Include="Client\scripts\services\webapi.js" />
+    <Content Include="index.html" />
     <Content Include="Client\library\angular-route\angular-route.js" />
     <Content Include="Client\library\angular-route\angular-route.min.js" />
     <Content Include="Client\library\angular-route\index.js" />
@@ -361,6 +361,7 @@
     <Content Include="Client\views\partials\settings.html" />
     <Content Include="Client\views\partials\sidebar.html" />
     <Content Include="Client\views\partials\top-navbar.html" />
+    <Content Include="gruntfile.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Web.config" />
@@ -537,6 +538,7 @@
     <Content Include="Client\library\themify-icons\fonts\themify.ttf" />
     <Content Include="Client\library\themify-icons\fonts\themify.woff" />
     <Content Include="Client\library\themify-icons\README.md" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
