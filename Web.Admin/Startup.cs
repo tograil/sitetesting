@@ -16,12 +16,15 @@ using Web.Admin.StartupModules;
 
 namespace Web.Admin
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpConfiguration();
             WebApiConfig.Register(config);
+            RegisterSwagger(config);
+
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             ConfigureAutofac(app, config);
             ConfigureOAuth(app);

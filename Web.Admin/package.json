@@ -13,11 +13,16 @@
     "grunt-contrib-nodeunit": "~0.4.1",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-filerev": "^2.3.1",
-    "grunt-usemin": "~3.1.1"
+    "grunt-usemin": "~3.1.1",
+    "grunt-apidoc": "~0.10.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "AR",
-  "license": "ISC"
+  "license": "ISC",
+  "apidoc": {
+    "title": "Custom apiDoc browser title",
+    "url" : "http://localhost:8085/"
+  }
 }
